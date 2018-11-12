@@ -1,6 +1,8 @@
 connection: "contactually_data_warehouse"
 week_start_day: sunday
 
+label: "Segment Ads"
+
 # include all the views
 include: "*.view"
 
@@ -9,6 +11,7 @@ include: "*.dashboard"
 
 ## Google Adwords ##
 explore: ad_performance_reports {
+  label: "Google Adwords Ad Performance Reports"
   join: ads {
     relationship: many_to_one
     sql_on: ${ad_performance_reports.ad_id} = ${ads.id} ;;
@@ -24,6 +27,7 @@ explore: ad_performance_reports {
 }
 
 explore: campaign_performance_reports {
+  label: "Google Adwords Campaign Performance Reports"
   join: campaigns {
     relationship: many_to_one
     sql_on: ${campaign_performance_reports.campaign_id} = ${campaigns.id} ;;
@@ -37,6 +41,7 @@ explore: campaign_performance_reports {
 
 ## Facebook Ads ##
 explore: facebook_ads {
+  label: "Facebook Ads"
   join: facebook_campaigns {
     type: left_outer
     sql_on: ${facebook_ads.campaign_id} = ${facebook_campaigns.id} ;;
@@ -57,6 +62,7 @@ explore: facebook_ads {
 }
 
 explore: facebook_insights {
+  label: "Facebook Insights"
   join: facebook_ads {
     type: left_outer
     sql_on: ${facebook_insights.ad_id} = ${facebook_ads.id} ;;
