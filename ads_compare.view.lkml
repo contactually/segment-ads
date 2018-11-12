@@ -28,12 +28,12 @@ view: ads_compare {
                 sum(apr.impressions) as impresssions,
                 sum(apr.clicks) as clicks,
                 'Google Ad Words'::text as source
-          from  adwords.ads a
-          join  adwords.ad_performance_reports apr
+          from  google_adwords.ads a
+          join  google_adwords.ad_performance_reports apr
             on  a.id = apr.ad_id
-          join  adwords.ad_groups g
+          join  google_adwords.ad_groups g
             on  a.ad_group_id = g.id
-          join  adwords.campaigns c
+          join  google_adwords.campaigns c
             on  g.campaign_id = c.id
       group by  1,2,3,4
       )

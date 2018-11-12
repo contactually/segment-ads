@@ -1,4 +1,5 @@
-connection: "pb_n_jays_postgres"
+connection: "contactually_data_warehouse"
+week_start_day: sunday
 
 # include all the views
 include: "*.view"
